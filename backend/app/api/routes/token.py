@@ -29,7 +29,7 @@ async def create_token(req: TokenRequest):
     )
     token.identity = identity
     token.name = identity
-    token.add_grants(VideoGrants(room_join=True, room=req.room))
+    token.with_grants(VideoGrants(room_join=True, room=req.room))
 
     return TokenResponse(
         token=token.to_jwt(),
